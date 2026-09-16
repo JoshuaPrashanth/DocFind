@@ -1,4 +1,4 @@
-# DocFind Non-Funtional Requirements
+# DocFind Non-Functional Requirements
 
 • Responsive on mobile, tablet, and desktop.
 • Simple interface.
