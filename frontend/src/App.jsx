@@ -1,4 +1,6 @@
 import UploadSection from "./components/UploadSection";
+import SearchBar from "./components/SearchBar.jsx";
+
 function App() {
   return (
     <div className="container">
