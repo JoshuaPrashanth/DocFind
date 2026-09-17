@@ -5,6 +5,7 @@ function App() {
       <h1>DocFind</h1>
       <p>PDF Document Search</p>
       <UploadSection />
+      <SearchBar />
     </div>
   );
 }
