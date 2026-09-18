@@ -1,3 +1,4 @@
+
 import UploadSection from "./components/UploadSection";
 import SearchBar from "./components/SearchBar.jsx";
 
@@ -6,6 +7,7 @@ function App() {
     <div className="container">
       <h1>DocFind</h1>
       <p>PDF Document Search</p>
+    
       <UploadSection />
       <SearchBar />
     </div>
