@@ -1,0 +1,15 @@
+#searchResults_container {
+  width: fit-content;
+}
+.preview_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 5px;
+  margin-top: 10px;
+}
+.preview_button {
+  margin: 0 10px 0 20px;
+}
