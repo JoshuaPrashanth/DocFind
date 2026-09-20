@@ -1,17 +1,16 @@
-import UploadSection from "./components/UploadSection";
-import SearchBar from "./components/SearchBar.jsx";
-import SearchResults from "./components/SearchResults.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+import WelcomePage from "./pages/WelcomePage";
 
 function App() {
   return (
-    <div className="container">
-      <h1>DocFind</h1>
-      <p>PDF Document Search</p>
-
-      <UploadSection />
-      <SearchBar />
-      <SearchResults />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/Home" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
