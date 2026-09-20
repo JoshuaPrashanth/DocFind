@@ -1,6 +1,7 @@
 
 import UploadSection from "./components/UploadSection";
 import SearchBar from "./components/SearchBar.jsx";
+import PdfViewer from "./components/PdfViewer.jsx";
 
 function App() {
   return (
@@ -10,6 +11,10 @@ function App() {
     
       <UploadSection />
       <SearchBar />
+      <PdfViewer 
+        DocumentName="REPORT.pdf"
+        PageNo={4}
+      />
     </div>
   );
 }
