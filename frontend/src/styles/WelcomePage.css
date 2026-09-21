@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Kavoon&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#welcomePageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background: url("../assets/desktop-bg.png") center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 30px;
+}
+
+#docfind_logo {
+  color: #3d927e;
+  font-size: 90px;
+  margin-bottom: 32px;
+}
+
+#welcomeContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Kavoon", serif;
+}
+
+#welcomeContainer h1 {
+  font-size: 42px;
+  font-weight: 400;
+}
+
+#docfindText {
+  color: #3d927e;
+}
+
+#docfindTitle {
+  margin-top: 22px;
+}
+
+p {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 21px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#startButton {
+  width: 155px;
+  height: 58px;
+  margin-top: 30px;
+  background: none;
+  border: 2px solid #3d927e;
+  border-radius: 50px;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 19px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#startButton:hover {
+  background: #3d927e;
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(61, 146, 126, 0.35);
+}
+
+#startButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(61, 146, 126, 0.25);
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  #docfind_logo {
+    font-size: 78px;
+  }
+
+  #welcomeContainer h1 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 19px;
+  }
+
+  #startButton {
+    width: 145px;
+    height: 54px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  #welcomePageContainer {
+    background-image: url("../assets/phone-bg.png");
+    padding: 20px;
+  }
+
+  #docfind_logo {
+    font-size: 46px;
+    margin-bottom: 20px;
+  }
+
+  #welcomeContainer {
+    gap: 6px;
+  }
+
+  #welcomeContainer h1 {
+    font-size: 24px;
+  }
+
+  #docfindTitle {
+    margin-top: 14px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  #startButton {
+    width: 120px;
+    height: 46px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  #docfind_logo {
+    font-size: 40px;
+  }
+
+  #welcomeContainer h1 {
+    font-size: 21px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  #startButton {
+    width: 110px;
+    height: 43px;
+    font-size: 15px;
+  }
+}
