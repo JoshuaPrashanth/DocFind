@@ -10,6 +10,7 @@ function HomePage() {
       <UploadSection />
       <SearchBar />
       <SearchResults />
+      <PdfViewer DocumentName="REPORT.pdf" PageNo={4} />
     </div>
   );
 }
