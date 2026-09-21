@@ -1,16 +1,16 @@
 const express = require("express");
-
 const app = express();
-const PORT = 5000;
+const cors = require("cors");
+app.use(cors());
 
-// Test API
 app.get("/api/test", (req, res) => {
   res.json({
-    success: true,
-    message: "DocFind backend is working!"
+    Test_Status: true,
+    PDF_Name: "Sample Test",
+    Page_no: 32,
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(3000, () => {
+  console.log("Backend is running on port: 3000");
 });
