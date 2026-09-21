@@ -1,6 +1,7 @@
 import UploadSection from "../components/UploadSection.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 import SearchResults from "../components/SearchResults.jsx";
+import PdfViewer from "./components/PdfViewer.jsx";
 
 function HomePage() {
   return (
