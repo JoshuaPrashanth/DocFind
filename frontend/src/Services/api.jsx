@@ -1,4 +1,4 @@
-export async function checkBackendStatus(){
+async function checkBackendStatus(){
   const response=await fetch("http://localhost:3000/api/test");
 
   if(!response.ok){
@@ -7,3 +7,5 @@ export async function checkBackendStatus(){
 
   return await response.json();
 }
+
+export default checkBackendStatus;
