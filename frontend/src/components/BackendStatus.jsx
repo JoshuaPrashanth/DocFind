@@ -11,12 +11,12 @@ function BackendStatus(){
           setStatus("Backend Connected");
         }
         catch(error){
-          setStatus("Backend Not Connected:",error)
+          setStatus("Backend Not Connected")
         }
       }
 
       backend();
-  })
+  }, [])
   
   return(
     <div className="Backend-status">
