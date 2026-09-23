@@ -11,7 +11,7 @@ function BackendStatus(){
           setStatus("Backend Connected");
         }
         catch(error){
-          setStatus("Backend Not Connected")
+          setStatus("Backend Not Connected",error)
         }
       }
 
