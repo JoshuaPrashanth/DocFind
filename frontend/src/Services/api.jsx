@@ -8,4 +8,8 @@ async function checkBackendStatus(){
   return await response.json();
 }
 
+export async function uploadPDFs(files){
+  
+}
+
 export default checkBackendStatus;
