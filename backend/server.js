@@ -1,13 +1,26 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const multer = require("multer");
 app.use(cors());
 
-app.get("/api/test", (req, res) => {
+const upload = multer({
+  dest: "./uploads",
+});
+
+let filenames = [];
+
+app.post("/api/upload", upload.array("pdfFiles", 50), (req, res) => {
+  for (let f of req.files) {
+    filenames = [...filenames, f.originalname];
+  }
+  console.log("Files Saved in uploads folder!");
+});
+
+app.get("/api/upload", (req, res) => {
   res.json({
-    Test_Status: true,
-    PDF_Name: "Sample Test",
-    Page_no: 32,
+    success: true,
+    files: filenames,
   });
 });
 
