@@ -1,52 +1,79 @@
 import { useState } from "react";
+import { uploadPDFs } from "../Services/api";
 
 function UploadSection() {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [fileNames, setFileNames] = useState([]);
   const [uploadState, setUploadState] = useState(false);
-  const [files, setFiles] = useState([]);
+  const [uploadMessage, setUploadMessage] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   function listFileNames(e) {
     let filesArray = [];
-    for (let f of e.target.files) {
-      filesArray = [...filesArray, f];
+
+    for (let i = 0; i < e.target.files.length; i++) {
+      filesArray = [...filesArray, e.target.files[i].name];
     }
-    setFiles(filesArray);
+
+    setSelectedFiles(e.target.files);
+    setFileNames(filesArray);
     setUploadState(true);
   }
 
-  async function uploadFiles() {
-    setUploadState(false);
-    const formData = new FormData();
-    for (let file of files) {
-      formData.append("pdfFiles", file);
+  async function handleUpload() {
+    if (selectedFiles.length === 0) {
+      setUploadMessage("Please select PDF files.");
+      return;
     }
-    await fetch("http://localhost:3000/api/upload", {
-      method: "POST",
-      body: formData,
-    });
-    console.log("Files Uploaded!!");
+
+    try {
+      setIsUploading(true);
+      setUploadMessage("Uploading...");
+
+      const data = await uploadPDFs(selectedFiles);
+      console.log(data);
+
+      setUploadMessage("Upload Successful");
+    } catch (error) {
+      console.log(error);
+      setUploadMessage("Upload Failed");
+    } finally {
+      setIsUploading(false);
+    }
   }
 
   return (
     <div className="upload_section_container">
       <p className="upload_section_title">Upload PDF Documents</p>
+
       <input
         type="file"
         multiple
         accept=".pdf"
-        name="pdfFiles"
         onChange={listFileNames}
       />
-      {files.map((file, i) => {
-        return <p key={i}>{file.name}</p>;
-      })}
+
+      {fileNames.map((fileName, i) => (
+        <p key={i}>{fileName}</p>
+      ))}
+
       {uploadState ? (
-        <button className="upload_buttons" onClick={uploadFiles}>
-          Upload
+        <button
+          className="upload_buttons"
+          onClick={handleUpload}
+          disabled={isUploading}
+        >
+          {isUploading ? "Uploading..." : "Upload"}
         </button>
       ) : (
         ""
       )}
+
+      {uploadMessage && (
+        <p className="upload_message">{uploadMessage}</p>
+      )}
     </div>
   );
 }
+
 export default UploadSection;

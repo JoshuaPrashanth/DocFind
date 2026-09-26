@@ -12,12 +12,12 @@ export async function uploadPDFs(files){
   const formData=new FormData();
 
   for(let i=0;i<files.length;i++){
-    formData.append("pdfs",files[i]);
+    formData.append("pdfFiles",files[i]);
   }
 
   const response=await fetch("http://localhost:3000/api/upload",{
     method:"POST",
-    body:"formData",
+    body:formData,
   })
 
   if(!response.ok){
