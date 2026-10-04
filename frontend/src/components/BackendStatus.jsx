@@ -4,7 +4,6 @@ import setbackendStatus from "../Services/api.jsx";
 function BackendStatus(){
   const [status,setStatus]=useState(" ");
 
-  
   useEffect(()=>{
       async function backend(){
         try{
@@ -19,8 +18,6 @@ function BackendStatus(){
       backend();
   }, [])
   
-
-
   return(
     <div className="Backend-status">
       <h3>
@@ -28,7 +25,6 @@ function BackendStatus(){
       </h3>
     </div>
   );
-
 }
 
 export default BackendStatus;

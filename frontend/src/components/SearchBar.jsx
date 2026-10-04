@@ -1,21 +1,15 @@
 import { useState } from "react";
-import {searchKeyword} from "../Services/api.jsx";
-
-
 
 function SearchBar() {
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
 
-
   async function sendSearchWord(keyWord) {
-    try{
-      const data=await searchKeyword(keyWord);
-      console.log(data);
-    }
-    catch(error){
-      console.error("Error occurred while searching:", error);
-    }
+    await fetch("http://localhost:3000/api/search", {
+      method: "POST",
+      body: keyWord,
+    });
+    console.log("KeyWord Sent Successfully!!");
   }
 
   const currentState = () => {
@@ -26,11 +20,8 @@ function SearchBar() {
     return setMessage("");
   };
 
-
-
   return (
     <div className="search-bar-component">
-      
       <input
         type="text"
         placeholder="Enter the Search Keyword..."
@@ -45,10 +36,8 @@ function SearchBar() {
       </button>
 
       {message}
-
     </div>
   );
-
 }
 
 export default SearchBar;
