@@ -1,11 +1,6 @@
-function SearchResults() {
-  const matchedPdfs = [
-    { pdf_name: "AI technology", page_no: 23 },
-    { pdf_name: "Analysis and design of algorithm", page_no: 42 },
-    { pdf_name: "Computer Networks", page_no: 54 },
-    { pdf_name: "Database Management Systems", page_no: 76 },
-  ];
-  //   const matchedPdfs = [];
+function SearchResults({ matchedPdfs }) {
+
+  
   return (
     <div id="searchResults_container">
       {matchedPdfs.length ? (
@@ -14,10 +9,10 @@ function SearchResults() {
             <div className="preview_container" key={i}>
               <div className="preview_container_left">
                 <h4 className="searchResults_pdfName">
-                  PDF name: {matchedPdf.pdf_name}
+                  PDF name: {matchedPdf.pdfName}
                 </h4>
                 <p className="searchResults_pdfName">
-                  Page no: {matchedPdf.page_no}
+                  Page no: {matchedPdf.pageNumber}
                 </p>
               </div>
               <button
