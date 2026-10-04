@@ -1,4 +1,4 @@
-function SearchResults({ matchedPdfs }) {
+function SearchResults({ matchedPdfs,setSelectedPdfs }) {
 
   
   return (
@@ -18,7 +18,7 @@ function SearchResults({ matchedPdfs }) {
               <button
                 className="preview_button"
                 onClick={() => {
-                  console.log(i);
+                  setSelectedPdfs(matchedPdf);
                 }}
               >
                 Preview

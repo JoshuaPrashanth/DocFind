@@ -6,6 +6,7 @@ import PdfViewer from "../components/PdfViewer.jsx";
 
 function HomePage() {
   const [matchedPdfs,setMatchedPdfs]=useState([]);
+  const [selectedPdfs,setSelectedPdfs]=useState(null);
 
   return (
     <div className="container">
@@ -13,8 +14,11 @@ function HomePage() {
       <p>PDF Document Search</p>
       <UploadSection />
       <SearchBar setMatchedPdfs={setMatchedPdfs}/>
-      <SearchResults matchedPdfs={matchedPdfs}/>
-      <PdfViewer DocumentName="REPORT.pdf" PageNo={4} />
+      <SearchResults matchedPdfs={matchedPdfs}
+        setSelectedPdfs={setSelectedPdfs}/>
+      {selectedPdfs && (
+        <PdfViewer selectedPdfs={selectedPdfs}/>
+      )}
     </div>
   );
 }
