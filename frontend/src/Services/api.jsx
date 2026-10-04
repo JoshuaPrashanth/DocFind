@@ -36,9 +36,9 @@ export async function searchKeyword(keyword){
   const response=await fetch(
     `http://localhost:3000/api/search?keyword=${encodeURIComponent(keyword)}`
   );
-
+  
   if(!response.ok){
-    throw new Error("search failed");
+    throw new Error("search failed no data found");
   }
 
   return await response.json();
