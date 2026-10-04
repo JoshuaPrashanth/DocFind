@@ -8,6 +8,8 @@ function UploadSection() {
   const [uploadMessage, setUploadMessage] = useState("");
   const [isUploading, setIsUploading] = useState(false);
 
+
+
   function listFileNames(e) {
     let filesArray = [];
 
@@ -19,6 +21,8 @@ function UploadSection() {
     setFileNames(filesArray);
     setUploadState(true);
   }
+
+
 
   async function handleUpload() {
     if (selectedFiles.length === 0) {
@@ -42,8 +46,11 @@ function UploadSection() {
     }
   }
 
+
+
   return (
     <div className="upload_section_container">
+
       <p className="upload_section_title">Upload PDF Documents</p>
 
       <input
@@ -53,9 +60,11 @@ function UploadSection() {
         onChange={listFileNames}
       />
 
+
       {fileNames.map((fileName, i) => (
         <p key={i}>{fileName}</p>
       ))}
+
 
       {uploadState ? (
         <button
@@ -65,15 +74,18 @@ function UploadSection() {
         >
           {isUploading ? "Uploading..." : "Upload"}
         </button>
-      ) : (
-        ""
-      )}
+        ) : ( "")
+      }
+
 
       {uploadMessage && (
         <p className="upload_message">{uploadMessage}</p>
       )}
+
     </div>
   );
+
 }
+
 
 export default UploadSection;

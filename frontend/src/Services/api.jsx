@@ -1,3 +1,4 @@
+
 async function checkBackendStatus(){
   const response=await fetch("http://localhost:3000/api/test");
 
@@ -7,6 +8,8 @@ async function checkBackendStatus(){
 
   return await response.json();
 }
+
+
 
 export async function uploadPDFs(files){
   const formData=new FormData();
@@ -26,5 +29,21 @@ export async function uploadPDFs(files){
 
   return await response.json();
 }
+
+
+
+export async function searchKeyword(keyword){
+  const response=await fetch(
+    `http://localhost:3000/api/search?keyword=${encodeURIComponent(keyword)}`
+  );
+
+  if(!response.ok){
+    throw new Error("search failed");
+  }
+
+  return await response.json();
+}
+
+
 
 export default checkBackendStatus;

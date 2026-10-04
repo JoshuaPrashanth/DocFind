@@ -1,12 +1,18 @@
 function PdfViewer({DocumentName,PageNo}){
 
+
+
   return(
     <div className="pdf-viewer-container">
+
       <h2>PDF Viewer</h2>
+
+
       <div className="pdf-info">
         <p><strong>Document:</strong>{DocumentName}</p>
         <p><strong>Page:</strong>{PageNo}</p>
       </div>
+
 
       <div className="pdf-placeholder">
         <iframe
@@ -16,6 +22,8 @@ function PdfViewer({DocumentName,PageNo}){
 
         </iframe>
       </div>
+
+
     </div>
   );
 }
