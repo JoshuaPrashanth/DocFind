@@ -1,15 +1,19 @@
 import { useState } from "react";
+import {searchKeyword} from "../Services/api.jsx";
 
-function SearchBar() {
+function SearchBar({setMatchedPdfs}) {
   const [value, setValue] = useState("");
   const [message, setMessage] = useState("");
 
   async function sendSearchWord(keyWord) {
-    await fetch("http://localhost:3000/api/search", {
-      method: "POST",
-      body: keyWord,
-    });
-    console.log("KeyWord Sent Successfully!!");
+    try{
+      const data=await searchKeyword(keyWord);
+      console.log(data);
+      setMatchedPdfs(data);
+    }
+    catch(error){
+      console.error("Error occurred while searching:", error);
+    }
   }
 
   const currentState = () => {
