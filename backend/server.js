@@ -8,6 +8,7 @@ const path = require("path");
 
 app.use(cors());
 
+
 const folderpath = path.join(__dirname, "uploads");
 
 if (!fs.existsSync(folderpath)) {
@@ -15,6 +16,7 @@ if (!fs.existsSync(folderpath)) {
 }
 
 app.use("/pdfs", express.static(folderpath));
+
 
 const storage = multer.diskStorage({
   destination: folderpath,
@@ -26,6 +28,8 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage: storage,
 });
+
+
 
 async function readPdf(filePath) {
   const temp = fs.readFileSync(filePath);
@@ -68,6 +72,8 @@ function clearUploads(){
 
 }
 
+
+
 app.post("/api/upload", upload.array("pdfFiles", 50), (req, res) => {
   res.json({
     success: true,
@@ -80,6 +86,17 @@ app.get("/api/search", async (req, res) => {
   const results = await searchKeyWord(keyword);
   res.json(results);
 });
+
+app.post("/api/new-session",(req,res)=>{
+  clearUploads();
+
+  res.json({
+    success:true,
+    message:"All files deleted"
+  })
+})
+
+
 
 app.listen(3000, () => {
   console.log("Backend is running on port: 3000");
