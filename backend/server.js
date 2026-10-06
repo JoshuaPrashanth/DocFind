@@ -55,6 +55,19 @@ async function searchKeyWord(keyword) {
   return results;
 }
 
+function clearUploads(){
+  const files=fs.readdirSync(folderpath);
+
+  files.forEach((file)=>{
+    const filepath=path.join(folderpath,file);
+
+    if(fs.statSync(filepath).isFile()){
+      fs.unlinkSync(filepath);
+    }
+  })
+
+}
+
 app.post("/api/upload", upload.array("pdfFiles", 50), (req, res) => {
   res.json({
     success: true,
