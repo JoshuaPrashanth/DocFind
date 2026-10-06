@@ -14,6 +14,8 @@ if (!fs.existsSync(folderpath)) {
   fs.mkdirSync(folderpath);
 }
 
+app.use("/pdfs", express.static(folderpath));
+
 const storage = multer.diskStorage({
   destination: folderpath,
   filename: (req, file, cb) => {
