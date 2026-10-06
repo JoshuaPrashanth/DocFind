@@ -1,3 +1,4 @@
+
 async function checkBackendStatus(){
   const response=await fetch("http://localhost:3000/api/test");
 
@@ -38,6 +39,22 @@ export async function searchKeyword(keyword){
   
   if(!response.ok){
     throw new Error("search failed no data found");
+  }
+
+  return await response.json();
+}
+
+
+
+export async function startNewSession(){
+  const response=await fetch(
+    "http://localhost:3000/api/new-session",{
+      method:"POST"
+    }
+  );
+
+  if(!response.ok){
+    throw new Error("deletion failed");
   }
 
   return await response.json();
