@@ -14,8 +14,9 @@ function WelcomePage() {
         <h1 id="docfindText">DocFind</h1>
       </div>
 
-      <p id="docfindTitle">Find the information you need across all your</p>
-      <p>PDF documents, instantly.</p>
+      <p id="docfindTitle">
+        Find the information you need across all your PDF documents, instantly.
+      </p>
       <button
         id="startButton"
         onClick={() => {

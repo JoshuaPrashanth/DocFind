@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { uploadPDFs } from "../Services/api";
+import "../styles/UploadSection.css";
 
 function UploadSection() {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -46,16 +47,17 @@ function UploadSection() {
     <div className="upload_section_container">
       <p className="upload_section_title">Upload PDF Documents</p>
 
-      <input
-        type="file"
-        multiple
-        accept=".pdf"
-        onChange={listFileNames}
-      />
+      <input type="file" multiple accept=".pdf" onChange={listFileNames} />
 
-      {fileNames.map((fileName, i) => (
-        <p key={i}>{fileName}</p>
-      ))}
+      {fileNames.length > 0 && (
+        <div className="upload_file_list">
+          {fileNames.map((fileName, i) => (
+            <p className="upload_file_name" key={i}>
+              {fileName}
+            </p>
+          ))}
+        </div>
+      )}
 
       {uploadState ? (
         <button
@@ -69,9 +71,7 @@ function UploadSection() {
         ""
       )}
 
-      {uploadMessage && (
-        <p className="upload_message">{uploadMessage}</p>
-      )}
+      {uploadMessage && <p className="upload_message">{uploadMessage}</p>}
     </div>
   );
 }

@@ -1,0 +1,122 @@
+#searchResults_container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+#searchResults_container::-webkit-scrollbar {
+  width: 6px;
+}
+
+#searchResults_container::-webkit-scrollbar-thumb {
+  background: #2a2f47;
+  border-radius: 99px;
+}
+
+.searchResults_empty {
+  margin: 0;
+  padding: 22px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #7a80a0;
+  background: #11131e;
+  border: 1.5px dashed #2a2f47;
+  border-radius: 14px;
+}
+
+.preview_container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #11131e;
+  border: 1px solid #242840;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.preview_container:hover {
+  border-color: #7c6cff;
+  box-shadow: 0 10px 26px rgba(124, 108, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.preview_icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #1a1d2e;
+  border: 1px solid #242840;
+  color: #7c6cff;
+  font-size: 20px;
+}
+
+.preview_container_left {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+
+.searchResults_pdfName {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #eceef7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.searchResults_page {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #7a80a0;
+}
+
+.preview_button {
+  flex-shrink: 0;
+  padding: 9px 18px;
+  border: 1.5px solid #2f3550;
+  border-radius: 8px;
+  background: transparent;
+  color: #cfd4e8;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.preview_button:hover {
+  background: #7c6cff;
+  border-color: #7c6cff;
+  color: #080a12;
+}
+
+.preview_button:active {
+  transform: translateY(1px);
+}
