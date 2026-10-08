@@ -1,0 +1,117 @@
+.upload_section_container {
+  padding: 20px;
+  background: #11131e;
+  border: 1px solid #242840;
+  border-radius: 16px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+.upload_section_title {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #eceef7;
+}
+
+.upload_section_container input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px dashed #2a2f47;
+  border-radius: 12px;
+  background: #0d0f19;
+  color: #b9bfd6;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.upload_section_container input:hover {
+  border-color: #7c6cff;
+  background: #141728;
+}
+
+.upload_section_container input::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #7c6cff, #22d3ee);
+  color: #080a12;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+}
+
+.upload_section_container input::file-selector-button:hover {
+  filter: brightness(1.12);
+}
+
+.upload_file_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.upload_file_name {
+  margin: 0;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #b9bfd6;
+  background: #1a1d2e;
+  border: 1px solid #242840;
+  border-radius: 99px;
+}
+
+.upload_buttons {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c6cff, #22d3ee);
+  color: #080a12;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.upload_buttons:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(124, 108, 255, 0.4);
+}
+
+.upload_buttons:active {
+  transform: translateY(0);
+}
+
+.upload_buttons:disabled {
+  background: #1a1d2e;
+  color: #5b6180;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.upload_message {
+  margin: 10px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #22d3ee;
+}

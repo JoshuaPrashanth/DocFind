@@ -1,153 +1,184 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&family=Kavoon&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 #welcomePageContainer {
-  width: 100%;
+  position: relative;
   min-height: 100vh;
-  background: url("../assets/desktop-bg.png") center / cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  padding: 30px;
+  padding: 40px 20px;
+  background: #080a12;
+  color: #eceef7;
+  text-align: center;
+  overflow: hidden;
+}
+
+#welcomePageContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      620px 420px at 22% 18%,
+      rgba(124, 108, 255, 0.22),
+      transparent 70%
+    ),
+    radial-gradient(
+      700px 460px at 80% 82%,
+      rgba(34, 211, 238, 0.16),
+      transparent 70%
+    );
+}
+
+#welcomePageContainer > * {
+  position: relative;
+  z-index: 1;
 }
 
 #docfind_logo {
-  color: #3d927e;
-  font-size: 90px;
-  margin-bottom: 32px;
+  font-size: 62px;
+  color: #7c6cff;
+  margin-bottom: 26px;
+  text-shadow: 0 0 34px rgba(124, 108, 255, 0.55);
+  animation: floatY 3.2s ease-in-out infinite;
 }
 
 #welcomeContainer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  font-family: "Kavoon", serif;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  animation: rise 0.55s ease both;
 }
 
-#welcomeContainer h1 {
-  font-size: 42px;
-  font-weight: 400;
+#welcomeText,
+#docfindText {
+  margin: 0;
+  padding: 0;
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -1.8px;
+  line-height: 1;
+}
+
+#welcomeText {
+  color: #eceef7;
 }
 
 #docfindText {
-  color: #3d927e;
+  background: linear-gradient(135deg, #7c6cff, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #7c6cff;
+  padding-bottom: 4px;
 }
 
-#docfindTitle {
-  margin-top: 22px;
-}
-
-p {
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 21px;
+#welcomePageContainer > p {
+  margin: 4px 0 34px;
+  max-width: 560px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
   line-height: 1.5;
-  text-align: center;
+  color: #9298b4;
+  animation: rise 0.55s ease 0.1s both;
 }
 
 #startButton {
-  width: 155px;
-  height: 58px;
-  margin-top: 30px;
-  background: none;
-  border: 2px solid #3d927e;
-  border-radius: 50px;
-  color: white;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 19px;
+  padding: 15px 42px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c6cff, #22d3ee);
+  color: #080a12;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+  animation: rise 0.55s ease 0.2s both;
 }
+
 #startButton:hover {
-  background: #3d927e;
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(61, 146, 126, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(124, 108, 255, 0.45);
 }
 
 #startButton:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(61, 146, 126, 0.25);
+  transform: translateY(0);
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {
-  #docfind_logo {
-    font-size: 78px;
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-
-  #welcomeContainer h1 {
-    font-size: 36px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  p {
-    font-size: 19px;
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
   }
+  50% {
+    transform: translateY(-8px);
+  }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  #docfind_logo,
+  #welcomeContainer,
+  #welcomePageContainer > p,
   #startButton {
-    width: 145px;
-    height: 54px;
-    font-size: 18px;
+    animation: none;
   }
 }
 
 @media (max-width: 768px) {
-  #welcomePageContainer {
-    background-image: url("../assets/phone-bg.png");
-    padding: 20px;
+  #docfind_logo {
+    font-size: 52px;
   }
 
+  #welcomeText,
+  #docfindText {
+    font-size: 42px;
+    letter-spacing: -1.4px;
+  }
+
+  #welcomePageContainer > p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
   #docfind_logo {
-    font-size: 46px;
+    font-size: 44px;
     margin-bottom: 20px;
   }
 
   #welcomeContainer {
     gap: 6px;
+    flex-direction: column;
   }
 
-  #welcomeContainer h1 {
-    font-size: 24px;
-  }
-
-  #docfindTitle {
-    margin-top: 14px;
-  }
-
-  p {
-    font-size: 15px;
-    line-height: 1.4;
+  #welcomeText,
+  #docfindText {
+    font-size: 34px;
+    letter-spacing: -1px;
   }
 
   #startButton {
-    width: 120px;
-    height: 46px;
-    margin-top: 20px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 400px) {
-  #docfind_logo {
-    font-size: 40px;
-  }
-
-  #welcomeContainer h1 {
-    font-size: 21px;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  #startButton {
-    width: 110px;
-    height: 43px;
-    font-size: 15px;
+    padding: 14px 34px;
+    font-size: 13px;
   }
 }
